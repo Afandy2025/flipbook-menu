@@ -1,0 +1,14 @@
+{
+  "name": "flipbook-menu",
+  "version": "1.0.0",
+  "description": "Interactive PDF flipbook with shareable links",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

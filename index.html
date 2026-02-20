@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PDF Flipbook — Interactive Menu Viewer</title>
+    <meta name="description"
+        content="Upload any PDF and view it as an interactive flipbook with realistic page curl effects.">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- Upload Screen -->
+    <div id="upload-screen">
+        <div id="upload-zone" tabindex="0" role="button" aria-label="Upload PDF">
+            <div class="upload-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="12" y1="18" x2="12" y2="12" />
+                    <polyline points="9 15 12 12 15 15" />
+                </svg>
+            </div>
+            <h2>Upload PDF</h2>
+            <p>Drag & drop your PDF here, or click to browse</p>
+            <p class="upload-hint">Any number of pages supported</p>
+        </div>
+        <input type="file" id="file-input" accept=".pdf,application/pdf" hidden>
+        <!-- Progress -->
+        <div id="progress-container" class="hidden">
+            <div id="progress-text">Rendering pages…</div>
+            <div id="progress-bar-track">
+                <div id="progress-bar-fill"></div>
+            </div>
+            <div id="progress-detail"></div>
+        </div>
+    </div>
+
+    <!-- Share Link Banner -->
+    <div id="share-banner" class="hidden">
+        <span>🔗 Shareable link:</span>
+        <input type="text" id="share-url" readonly>
+        <button id="copy-link-btn">Copy</button>
+    </div>
+
+    <!-- Flipbook (hidden until PDF loaded) -->
+    <div id="flipbook-container" class="hidden">
+        <canvas id="flipbook-canvas"></canvas>
+        <div id="nav-left" class="nav-arrow" aria-label="Previous page">&#10094;</div>
+        <div id="nav-right" class="nav-arrow" aria-label="Next page">&#10095;</div>
+        <div id="page-indicator"></div>
+        <button id="change-pdf-btn" aria-label="Change PDF">&#8635; New PDF</button>
+    </div>
+    <div id="hint" class="hint hidden">Drag the page corner to flip &rarr;</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.9.155/pdf.min.mjs" type="module"></script>
+    <script src="/js/app.js" type="module"></script>
+</body>
+
+</html>
